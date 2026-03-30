@@ -42,15 +42,12 @@ function DirectionBlock({ title, children }) {
   )
 }
 
-function Expandable({ id, label, children }) {
-  const [open, setOpen] = useState(false)
+function Expandable({ id, label, open, onToggle, children }) {
   return (
     <div id={id}>
       <button
-        onClick={() => setOpen(!open)}
-        className={`w-full flex items-center justify-between px-6 py-4 font-medium text-white transition-colors duration-300 ${
-          open ? 'bg-amber-600' : 'bg-stone-800 hover:bg-stone-700'
-        }`}
+        onClick={onToggle}
+        className="hidden"
       >
         <span>{label}</span>
         <span
@@ -71,6 +68,13 @@ function Expandable({ id, label, children }) {
 }
 
 export default function QueHacer() {
+  const [openSection, setOpenSection] = useState(null)
+
+  const toggle = (section) => {
+    setOpenSection((prev) => (prev === section ? null : section))
+    setTimeout(() => document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' }), 50)
+  }
+
   return (
     <main>
 
@@ -108,14 +112,14 @@ export default function QueHacer() {
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
                 <button
-                  onClick={() => document.getElementById('andando')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-6 py-3 bg-stone-800 text-white hover:bg-stone-700 font-medium transition-colors text-sm"
+                  onClick={() => toggle('andando')}
+                  className={`px-6 py-3 font-medium transition-colors text-sm ${openSection === 'andando' ? 'bg-amber-600 text-white' : 'bg-stone-800 text-white hover:bg-stone-700'}`}
                 >
                   Lugares cercanos andando ↓
                 </button>
                 <button
-                  onClick={() => document.getElementById('coche')?.scrollIntoView({ behavior: 'smooth' })}
-                  className="px-6 py-3 border-2 border-stone-800 text-stone-800 hover:bg-stone-800 hover:text-white font-medium transition-colors text-sm"
+                  onClick={() => toggle('coche')}
+                  className={`px-6 py-3 font-medium transition-colors text-sm ${openSection === 'coche' ? 'bg-amber-600 text-white' : 'border-2 border-stone-800 text-stone-800 hover:bg-stone-800 hover:text-white'}`}
                 >
                   Lugares cercanos en coche ↓
                 </button>
@@ -135,7 +139,7 @@ export default function QueHacer() {
 
           {/* ANDANDO */}
           {/* Imágenes → andando-puente.jpg | andando-zamariain.jpg | andando-ermita.jpg | andando-aizpea.jpg */}
-          <Expandable id="andando" label="Lugares cercanos andando">
+          <Expandable id="andando" label="Lugares cercanos andando" open={openSection === 'andando'} onToggle={() => toggle('andando')}>
             <PlaceCard
               img="/andando-puente.jpg"
               title="El puente colgante"
@@ -167,7 +171,7 @@ export default function QueHacer() {
           {/* EN COCHE */}
           {/* Imágenes → coche-abaurrea.jpg | coche-ezcaroz.jpg | coche-ochagavia.jpg | coche-isaba.jpg
                         coche-orbaizeta.jpg | coche-irati.jpg | coche-espinal.jpg | coche-sorogain.jpg | coche-nagore.jpg */}
-          <Expandable id="coche" label="Lugares cercanos en coche">
+          <Expandable id="coche" label="Lugares cercanos en coche" open={openSection === 'coche'} onToggle={() => toggle('coche')}>
             <p className="text-stone-600 leading-relaxed py-6">
               Aribe está ubicado en un cruce de caminos, que la convierten en la base ideal para disfrutar
               de los atractivos de tres Valles (Aezkoa, Arce, Roncal), la Selva de Irati y el Camino de Santiago.
