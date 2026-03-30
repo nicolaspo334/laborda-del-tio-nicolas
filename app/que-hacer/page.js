@@ -72,7 +72,6 @@ export default function QueHacer() {
 
   const toggle = (section) => {
     setOpenSection((prev) => (prev === section ? null : section))
-    setTimeout(() => document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' }), 50)
   }
 
   return (
