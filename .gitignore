@@ -40,6 +40,8 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# vídeos sin comprimir
+# vídeos (se sirven desde Cloudflare R2)
 *.MOV
 *.mov
+*.mp4
+*.MP4
