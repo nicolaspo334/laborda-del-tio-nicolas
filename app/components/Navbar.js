@@ -9,6 +9,7 @@ const links = [
   { href: '/historia', label: 'Historia' },
   { href: '/que-hacer', label: '¿Qué hacer?' },
   { href: '/donde-comer', label: '¿Dónde comer?' },
+  { href: '/galeria', label: 'Galería' },
   { href: '/reserva', label: '¡Reserva ya!' },
 ]
 
