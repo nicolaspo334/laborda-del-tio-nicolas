@@ -1,65 +1,167 @@
-import Image from "next/image";
+'use client'
+
+import { useEffect } from 'react'
+import Link from 'next/link'
 
 export default function Home() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => {
+        if (e.isIntersecting) e.target.classList.add('visible')
+      }),
+      { threshold: 0.15 }
+    )
+    document.querySelectorAll('.fade-up').forEach((el) => observer.observe(el))
+    return () => observer.disconnect()
+  }, [])
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <main>
+
+      {/* ── HERO ───────────────────────────────────────────────── */}
+      <section className="relative h-screen flex flex-col items-center justify-center text-white text-center overflow-hidden">
+
+        {/* Imagen de fondo → guarda tu foto como: public/hero.jpg */}
+        <div
+          className="absolute inset-0 bg-stone-600 bg-cover bg-center"
+          style={{ backgroundImage: "url('/hero.jpg')" }}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
+        {/* Overlay oscuro para que el texto se lea bien */}
+        <div className="absolute inset-0 bg-black/45" />
+
+        <div className="relative z-10 px-6 max-w-4xl mx-auto">
+          <h1 className="font-[family-name:var(--font-playfair)] text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            La borda del tío Nicolás
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="text-xl md:text-2xl max-w-2xl mx-auto mb-10 text-white/85 leading-relaxed">
+            Una casa rural en pleno Pirineo Navarro,<br className="hidden md:block" />
+            a orillas del río y junto a la Selva de Irati
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/galeria"
+              className="px-8 py-3 border-2 border-white text-white hover:bg-white hover:text-stone-800 transition-all duration-300 text-base font-medium tracking-wide"
+            >
+              Galería de fotos
+            </Link>
+            <Link
+              href="/reserva"
+              className="px-8 py-3 bg-amber-600 hover:bg-amber-500 text-white transition-all duration-300 text-base font-medium tracking-wide"
+            >
+              ¡Reserva ya!
+            </Link>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Indicador de scroll */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/50 text-xs tracking-widest uppercase">
+          <span>Descubre</span>
+          <div className="w-px h-10 bg-white/30 animate-bounce" />
         </div>
-      </main>
-    </div>
-  );
+      </section>
+
+      {/* ── LA CASA ────────────────────────────────────────────── */}
+      <section className="py-24 md:py-32 bg-stone-50">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-14 lg:gap-20 items-center">
+
+            {/* Texto */}
+            <div className="fade-up">
+              <span className="text-amber-600 font-medium text-xs tracking-widest uppercase">
+                La casa
+              </span>
+              <h2 className="font-[family-name:var(--font-playfair)] text-4xl text-stone-800 mt-3 mb-6 leading-snug">
+                Comodidad en plena naturaleza
+              </h2>
+              <p className="text-stone-600 leading-relaxed text-base">
+                Encontrándose en pleno ambiente rural, la casa dispone de todas las
+                comodidades para una placentera estancia: agua caliente y calefacción
+                específicas para la casa, ésta última con programación para cada planta;
+                chimenea; mesas para comer, para estudiar o trabajar, o para leer en la
+                terraza; cómodas camas; armarios para guardar la ropa; plancha;
+                lavadora-secadora, microondas, wifi de máxima capacidad; smart-tv;
+                cafetera Nespresso; secadores de pelo; juegos de mesa; libros de
+                literatura; folletos de información turística, hamacas para colgar en la
+                orilla del río; garaje cerrado y cubierto para motos y bicis con toma
+                para carga de las eléctricas…
+              </p>
+              <Link
+                href="/la-casa"
+                className="inline-block mt-8 text-amber-600 font-medium hover:text-amber-700 border-b border-amber-600 hover:border-amber-700 pb-0.5 transition-colors"
+              >
+                Ver más sobre la casa →
+              </Link>
+            </div>
+
+            {/* Imagen → guarda tu foto como: public/casa.jpg */}
+            <div className="fade-up delay-200">
+              <div
+                className="w-full aspect-[4/3] bg-stone-300 bg-cover bg-center rounded-sm shadow-lg"
+                style={{ backgroundImage: "url('/casa.jpg')" }}
+              />
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── UBICACIÓN ─────────────────────────────────────────── */}
+      <section className="relative py-40 flex items-center justify-center text-white text-center overflow-hidden">
+
+        {/* Vídeo de fondo → guarda tu vídeo como: public/ubicacion.mp4
+            Si no tienes vídeo, usa una imagen: public/ubicacion.jpg        */}
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          poster="/ubicacion.jpg"
+        >
+          <source src="/ubicacion.mp4" type="video/mp4" />
+        </video>
+        {/* Si no tienes vídeo, comenta el <video> de arriba y descomenta esto:
+        <div
+          className="absolute inset-0 bg-green-900 bg-cover bg-center"
+          style={{ backgroundImage: "url('/ubicacion.jpg')" }}
+        /> */}
+
+        <div className="absolute inset-0 bg-black/50" />
+
+        <div className="relative z-10 px-6 fade-up">
+          <span className="text-amber-400 font-medium text-xs tracking-widest uppercase">
+            Aribe, Navarra
+          </span>
+          <h2 className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl mt-3 mb-4">
+            Descubre el entorno
+          </h2>
+          <p className="text-white/75 text-lg max-w-lg mx-auto mb-10">
+            En el corazón del Pirineo Navarro, rodeados de ríos, montañas
+            y la majestuosa Selva de Irati.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/que-hacer"
+              className="px-7 py-3 bg-white text-stone-800 hover:bg-amber-50 font-medium transition-all duration-300"
+            >
+              ¿Qué hacer?
+            </Link>
+            <Link
+              href="/donde-comer"
+              className="px-7 py-3 bg-white text-stone-800 hover:bg-amber-50 font-medium transition-all duration-300"
+            >
+              ¿Dónde comer?
+            </Link>
+            <Link
+              href="/como-llegar"
+              className="px-7 py-3 border-2 border-white text-white hover:bg-white hover:text-stone-800 font-medium transition-all duration-300"
+            >
+              ¿Cómo llegar?
+            </Link>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  )
 }
