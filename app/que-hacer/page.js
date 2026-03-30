@@ -239,14 +239,13 @@ export default function QueHacer() {
                 text="Existen dos zonas de esparcimiento que circundan un embalse, donde está permitido el baño."
                 href="https://www.valledearce.com/turismo/actividades-turisticas/turismo-de-navarra-organice-su-viaje-paseo-del-embalse-de-nagore/"
               />
-              <div className="py-8">
-                <h3 className="font-[family-name:var(--font-playfair)] text-xl text-stone-800 mb-3">
-                  Otros lugares cercanos…
-                </h3>
-                <p className="text-stone-600 text-sm leading-relaxed mb-5">
-                  A 59 km al sur está la capital de la Comunidad Foral, Pamplona, a 95 km el Castillo de Olite,
-                  y a 149 km, el parque natural de las Bardenas Reales.
-                </p>
+              <PlaceCard
+                img="/lugar-cercano.jpg"
+                title="Otros lugares cercanos…"
+                text="A 59 km al sur está la capital de la Comunidad Foral, Pamplona, a 95 km el Castillo de Olite, y a 149 km, el parque natural de las Bardenas Reales."
+                reverse
+              />
+              <div className="pb-8">
                 <a
                   href="https://www.visitnavarra.es/es/"
                   target="_blank"
