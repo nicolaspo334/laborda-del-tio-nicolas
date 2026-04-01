@@ -162,6 +162,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── UBICACIÓN ───────────────────────────────────────────── */}
+      <section className="relative py-40 flex items-center justify-center text-white text-center overflow-hidden">
+        <video
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+        >
+          <source src="https://pub-610b72cfb35845f5881e0761e7934301.r2.dev/ubicacion2.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/50" />
+        <div className="relative z-10 px-6 fade-up">
+          <span className="text-amber-400 font-medium text-xs tracking-widest uppercase">
+            Cómo llegar
+          </span>
+          <h2 className="font-[family-name:var(--font-playfair)] text-4xl md:text-5xl mt-3 mb-4">
+            ¿Dónde estamos?
+          </h2>
+          <p className="text-white/75 text-lg max-w-lg mx-auto mb-10">
+            C. Sta. María, 60 · Aribe, Navarra
+          </p>
+          <Link
+            href="/como-llegar"
+            className="px-8 py-3 bg-amber-600 hover:bg-amber-500 text-white font-medium transition-all duration-300"
+          >
+            Ver en el mapa
+          </Link>
+        </div>
+      </section>
+
     </main>
   )
 }

@@ -1,7 +1,101 @@
-export default function Page() {
+export default function ComoLlegar() {
   return (
-    <main className="min-h-screen flex items-center justify-center">
-      <p className="text-stone-400 text-lg">Próximamente…</p>
+    <main>
+
+      {/* ── HERO ────────────────────────────────────────────────── */}
+      <section className="relative h-[40vh] flex items-end pb-16 text-white overflow-hidden">
+        <div
+          className="absolute inset-0 bg-stone-700 bg-cover bg-center"
+          style={{ backgroundImage: "url('/hero.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/35 to-black/10" />
+        <div className="relative z-10 max-w-6xl mx-auto px-6 w-full">
+          <span className="text-amber-400 font-medium text-xs tracking-widest uppercase">
+            Aribe, Navarra
+          </span>
+          <h1 className="font-[family-name:var(--font-playfair)] text-5xl md:text-6xl mt-2 drop-shadow-lg">
+            ¿Cómo llegar?
+          </h1>
+        </div>
+      </section>
+
+      {/* ── DIRECCIÓN + MAPA ────────────────────────────────────── */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+            <div>
+              <span className="text-amber-600 font-medium text-xs tracking-widest uppercase">
+                Dirección
+              </span>
+              <p className="font-[family-name:var(--font-playfair)] text-2xl text-stone-800 mt-1">
+                C. Sta. María, 60
+              </p>
+              <p className="text-stone-500 mt-1">31671 Aribe, Navarra, España</p>
+            </div>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=C.+Sta.+María,+60,+31671+Aribe,+Navarra,+España"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white font-medium transition-colors text-sm whitespace-nowrap"
+            >
+              Cómo llegar con Google Maps →
+            </a>
+          </div>
+
+          {/* Mapa embebido */}
+          <div className="w-full rounded-sm overflow-hidden shadow-md" style={{ height: '480px' }}>
+            <iframe
+              title="Ubicación La Borda del Tío Nicolás"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d726.5!2d-1.1985!3d42.9285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd509b2e8e8e8e8e%3A0x0!2sC.+Sta.+Mar%C3%ADa%2C+60%2C+31671+Aribe%2C+Navarra!5e0!3m2!1ses!2ses!4v1"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── INSTRUCCIONES ───────────────────────────────────────── */}
+      <section className="py-16 bg-stone-50">
+        <div className="max-w-4xl mx-auto px-6">
+          <h2 className="font-[family-name:var(--font-playfair)] text-2xl text-stone-800 mb-8">
+            Cómo llegar
+          </h2>
+          <div className="grid sm:grid-cols-2 gap-8">
+            <div>
+              <h3 className="font-medium text-stone-800 mb-2">Desde Pamplona</h3>
+              <p className="text-stone-600 text-sm leading-relaxed">
+                Tomar la N-135 en dirección a Francia hasta Espinal, luego la NA-140 en
+                dirección a Orbaizeta. Aribe está a aproximadamente 1h de Pamplona.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-medium text-stone-800 mb-2">Desde Zaragoza o Madrid</h3>
+              <p className="text-stone-600 text-sm leading-relaxed">
+                Acceder por la AP-15 hasta Pamplona y desde allí seguir las indicaciones
+                anteriores.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-medium text-stone-800 mb-2">Desde Francia</h3>
+              <p className="text-stone-600 text-sm leading-relaxed">
+                Cruzar por el puerto de Larrau o Arnéguy y seguir en dirección sur por
+                la NA-140 hasta Aribe.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-medium text-stone-800 mb-2">Coordenadas GPS</h3>
+              <p className="text-stone-600 text-sm leading-relaxed">
+                42.9285° N, 1.1985° O
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </main>
   )
 }
