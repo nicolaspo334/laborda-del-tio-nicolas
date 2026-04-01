@@ -103,7 +103,7 @@ export default function ComoLlegar() {
           <span className="text-amber-600 font-medium text-xs tracking-widest uppercase">El entorno</span>
           <h2 className="font-[family-name:var(--font-playfair)] text-2xl text-stone-800 mt-2 mb-8">Fotos de la ubicación</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            {[1, 2, 3, 4, 5, 6].map((n) => (
+            {[1, 2, 3].map((n) => (
               <div
                 key={n}
                 className="aspect-square bg-stone-200 bg-cover bg-center rounded-sm"
