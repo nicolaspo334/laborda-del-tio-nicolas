@@ -118,7 +118,7 @@ export default function Home() {
           playsInline
           poster="/ubicacion.jpg"
         >
-          <source src="https://pub-610b72cfb35845f5881e0761e7934301.r2.dev/ubicacion.MOV" type="video/mp4" />
+          <source src="https://pub-610b72cfb35845f5881e0761e7934301.r2.dev/ubicacion.mp4" type="video/mp4" />
         </video>
         {/* Si no tienes vídeo, comenta el <video> de arriba y descomenta esto:
         <div
