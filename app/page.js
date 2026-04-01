@@ -152,12 +152,6 @@ export default function Home() {
             >
               ¿Dónde comer?
             </Link>
-            <Link
-              href="/como-llegar"
-              className="px-7 py-3 border-2 border-white text-white hover:bg-white hover:text-stone-800 font-medium transition-all duration-300"
-            >
-              ¿Cómo llegar?
-            </Link>
           </div>
         </div>
       </section>
