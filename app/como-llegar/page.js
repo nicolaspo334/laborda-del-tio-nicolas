@@ -96,6 +96,24 @@ export default function ComoLlegar() {
         </div>
       </section>
 
+      {/* ── FOTOS DE LA UBICACIÓN ───────────────────────────────── */}
+      {/* Añade fotos con estos nombres: ubicacion-foto-1.jpg, ubicacion-foto-2.jpg, ubicacion-foto-3.jpg ... */}
+      <section className="py-16 bg-white">
+        <div className="max-w-6xl mx-auto px-6">
+          <span className="text-amber-600 font-medium text-xs tracking-widest uppercase">El entorno</span>
+          <h2 className="font-[family-name:var(--font-playfair)] text-2xl text-stone-800 mt-2 mb-8">Fotos de la ubicación</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+            {[1, 2, 3, 4, 5, 6].map((n) => (
+              <div
+                key={n}
+                className="aspect-square bg-stone-200 bg-cover bg-center rounded-sm"
+                style={{ backgroundImage: `url('/ubicacion-foto-${n}.jpg')` }}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
     </main>
   )
 }
