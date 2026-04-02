@@ -217,7 +217,7 @@ export default function LaCasa() {
                   {[
                     { images: ['/bano-1.jpg', '/bano-1-2.jpg', '/bano-1-3.jpg'], title: 'Baño 1', desc: 'Exclusivo para la habitación con vistas al río, tiene una ducha y disfruta de una gran ventana al cauce. Hay secador, jabón de manos, crema de manos y gel-champú.' },
                     { images: ['/bano-2.jpg', '/bano-2-2.jpg', '/bano-2-3.jpg'], title: 'Baño 2', desc: 'En la planta de arriba y con acceso desde el salón, tiene bañera y una ventana claraboya (velux) con vistas a la peña de Aribe. Hay secador, jabón de manos, crema de manos y gel-champú.' },
-                    { images: ['/bano-3.jpg'], title: 'Baño 3', desc: 'En la planta inferior, dispone de ducha. Hay secador, jabón de manos, crema de manos y gel-champú.' },
+                    { images: ['/bano-3.jpg'], title: 'Baño 3', desc: 'En la planta inferior, dispone de ducha. Hay jabón de manos, crema de manos y gel-champú.' },
                   ].map((b) => (
                     <div key={b.title} className="grid sm:grid-cols-2 gap-5 items-center">
                       <Carousel images={b.images} onZoom={setLightbox} />
