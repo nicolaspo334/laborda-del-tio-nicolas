@@ -34,14 +34,24 @@ export default function ComoLlegar() {
               Llegarás al aparcamiento situado en el centro del pueblo. Desde allí podrás
               ir andando hasta la casa cómodamente.
             </p>
-            <a
-              href="https://www.google.com/maps/dir/?api=1&destination=42.944041,-1.263552"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white font-medium transition-colors text-sm"
-            >
-              Cómo llegar al parking →
-            </a>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=42.944041,-1.263552"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white font-medium transition-colors text-sm"
+              >
+                Cómo llegar al parking →
+              </a>
+              <a
+                href="https://pub-610b72cfb35845f5881e0761e7934301.r2.dev/como_llegar.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-stone-800 text-stone-800 hover:bg-stone-800 hover:text-white font-medium transition-colors text-sm"
+              >
+                Ver instrucciones para llegar →
+              </a>
+            </div>
           </div>
 
           {/* Mapa embebido */}
