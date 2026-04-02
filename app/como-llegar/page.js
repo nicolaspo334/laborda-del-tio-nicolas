@@ -49,7 +49,7 @@ export default function ComoLlegar() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 border-2 border-stone-800 text-stone-800 hover:bg-stone-800 hover:text-white font-medium transition-colors text-sm"
               >
-                Ver instrucciones para llegar →
+                Cómo llegar del parking a la casa →
               </a>
             </div>
           </div>
