@@ -83,7 +83,7 @@ export default function Historia() {
           </p>
           <p className="text-stone-600 text-lg leading-relaxed mt-6">
             Así fue durante muchos años hasta que en <span className="text-stone-800 font-medium">2000</span>,
-            nosotros sus sobrinos, Gonzalo y Maribel, decidimos restaurarla completamente respetando los
+            nosotros sus sobrinos decidimos restaurarla completamente respetando los
             materiales y arquitectura del lugar. Para ello tuvimos la gran ayuda de nuestro tío Nicolás,
             y por ello la borda debía tener su nombre.
           </p>
