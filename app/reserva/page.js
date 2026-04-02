@@ -122,7 +122,7 @@ export default function Reserva() {
                 </h2>
                 <p className="text-stone-600 leading-relaxed">
                   Los precios oscilan entre <strong className="text-stone-800">220 €</strong> y{' '}
-                  <strong className="text-stone-800">350 € por día</strong>, dependiendo de la temporada.
+                  <strong className="text-stone-800">380 € por día</strong>, dependiendo de la temporada.
                 </p>
               </div>
 
