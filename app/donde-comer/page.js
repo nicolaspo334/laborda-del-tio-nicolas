@@ -36,9 +36,7 @@ function Expandable({ id, label, open, onToggle, children }) {
     <div id={id}>
       <button
         onClick={onToggle}
-        className={`w-full flex items-center justify-between px-6 py-4 font-medium text-white transition-colors duration-300 ${
-          open ? 'bg-amber-600' : 'bg-stone-800 hover:bg-stone-700'
-        }`}
+          className="hidden"
       >
         <span>{label}</span>
         <span
