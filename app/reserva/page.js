@@ -133,8 +133,8 @@ export default function Reserva() {
                 <p className="text-stone-600 leading-relaxed">
                   Para confirmar la reserva, pediremos que se abone, mediante transferencia
                   o Bizum, una parte del importe total de la reserva. Si es cancelada con
-                  anterioridad al décimo día antes de llegar se reintegrará el importe
-                  íntegramente. Con anterioridad al día quinto antes de la llegada, deberá
+                  20 días de antelación antes de llegar se reintegrará el importe
+                  íntegramente. Con anterioridad al día décimo antes de la llegada, deberá
                   haberse abonado el importe íntegro bien por transferencia o Bizum.
                 </p>
               </div>
