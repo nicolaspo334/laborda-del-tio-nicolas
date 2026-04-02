@@ -69,14 +69,10 @@ function ClickableImage({ src, onZoom }) {
 function Expandable({ label, open, onToggle, children }) {
   return (
     <div>
-      <button
-        onClick={onToggle}
-        className={`w-full flex items-center justify-between px-6 py-4 font-medium text-white transition-colors duration-300 ${open ? 'bg-amber-600' : 'bg-stone-800 hover:bg-stone-700'}`}
-      >
+      <button onClick={onToggle} className="hidden">
         <span>{label}</span>
-        <span className="text-lg inline-block transition-transform duration-300" style={{ transform: open ? 'rotate(180deg)' : 'rotate(0deg)' }}>↓</span>
       </button>
-      <div className="overflow-hidden transition-all duration-700 border-x border-b border-stone-200 bg-white" style={{ maxHeight: open ? '12000px' : '0px' }}>
+      <div className="overflow-hidden transition-all duration-700 bg-white" style={{ maxHeight: open ? '12000px' : '0px' }}>
         <div className="px-6 py-6">{children}</div>
       </div>
     </div>
