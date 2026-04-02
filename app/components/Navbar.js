@@ -10,6 +10,7 @@ const links = [
   { href: '/que-hacer', label: '¿Qué hacer?' },
   { href: '/donde-comer', label: '¿Dónde comer?' },
   { href: '/como-llegar', label: '¿Cómo llegar?' },
+  { href: '/instrucciones', label: 'Instrucciones' },
   { href: '/galeria', label: 'Galería' },
   { href: '/reserva', label: '¡Reserva ya!' },
 ]
