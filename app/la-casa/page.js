@@ -142,7 +142,7 @@ export default function LaCasa() {
             <div>
               <span className="text-amber-600 font-medium text-xs tracking-widest uppercase">Planta superior</span>
               <h2 className="font-[family-name:var(--font-playfair)] text-3xl text-stone-800 mt-2 mb-5">Salón superior</h2>
-              <p className="text-stone-600 leading-relaxed">El salón de la planta superior hace la función de distribución entre las habitaciones, el baño y la terraza, y en él hay una mesa de trabajo, con conexión adyacente ethernet además de wifi, una chaisse longue y un antiguo escritorio.</p>
+              <p className="text-stone-600 leading-relaxed">El salón de la planta superior hace la función de distribución entre las habitaciones, el baño y la terraza, y en él hay un sofá cama, una mesa de trabajo, con conexión ethernet además de wifi y un antiguo escritorio.</p>
             </div>
           </div>
         </div>
