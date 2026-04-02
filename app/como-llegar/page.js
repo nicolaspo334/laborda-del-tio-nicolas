@@ -34,24 +34,14 @@ export default function ComoLlegar() {
               Llegarás al aparcamiento situado en el centro del pueblo. Desde allí podrás
               ir andando hasta la casa cómodamente.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a
-                href="https://www.google.com/maps/dir/?api=1&destination=C.+Sta.+María,+60,+31671+Aribe,+Navarra,+España"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white font-medium transition-colors text-sm"
-              >
-                Cómo llegar a la casa →
-              </a>
-              <a
-                href="https://www.google.com/maps/dir/?api=1&destination=42.944041,-1.263552"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-stone-800 text-stone-800 hover:bg-stone-800 hover:text-white font-medium transition-colors text-sm"
-              >
-                Cómo llegar al parking →
-              </a>
-            </div>
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=42.944041,-1.263552"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white font-medium transition-colors text-sm"
+            >
+              Cómo llegar al parking →
+            </a>
           </div>
 
           {/* Mapa embebido */}
