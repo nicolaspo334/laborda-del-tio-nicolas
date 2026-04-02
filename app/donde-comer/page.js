@@ -120,6 +120,12 @@ const elaborada = [
     texto: 'En Garaioa, a 3 km, en Ibarretxea la comida se reconoce como arraigada en la zona con toques modernos.',
     direccion: 'Calle Txikirrin, 20, 31692 Garayoa, Navarra',
   },
+  {
+    img: '/restaurante_roncesvalles.jpg',
+    nombre: 'Restaurante Roncesvalles',
+    texto: 'El restaurante del Hotel Roncesvalles ofrece una cocina tradicional navarra basada en productos de temporada y de proximidad. Su propuesta es sencilla y auténtica, con menús del día, platos combinados, ensaladas y postres caseros, además de opciones más informales como raciones y bocadillos en un entorno acogedor.',
+    direccion: 'Calle Ntra. Sra. de Roncesvalles, 14, 31650 Roncesvalles, Navarra',
+  },
 ]
 
 export default function DondeComer() {
