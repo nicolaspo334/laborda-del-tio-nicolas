@@ -79,7 +79,7 @@ export default function Home() {
                 específicas para la casa, ésta última con programación para cada planta;
                 chimenea; mesas para comer, para estudiar o trabajar, o para leer en la
                 terraza; cómodas camas; armarios para guardar la ropa; plancha;
-                lavadora-secadora, microondas, wifi de máxima capacidad; smart-tv;
+                lavadora, microondas, wifi de máxima capacidad; smart-tv;
                 cafetera Nespresso; secadores de pelo; juegos de mesa; libros de
                 literatura; folletos de información turística, hamacas para colgar en la
                 orilla del río; garaje cerrado y cubierto para motos y bicis con toma
