@@ -70,43 +70,6 @@ export default function ComoLlegar() {
         </div>
       </section>
 
-      {/* ── INSTRUCCIONES ───────────────────────────────────────── */}
-      <section className="py-16 bg-stone-50">
-        <div className="max-w-4xl mx-auto px-6">
-          <h2 className="font-[family-name:var(--font-playfair)] text-2xl text-stone-800 mb-8">
-            Cómo llegar
-          </h2>
-          <div className="grid sm:grid-cols-2 gap-8">
-            <div>
-              <h3 className="font-medium text-stone-800 mb-2">Desde Pamplona</h3>
-              <p className="text-stone-600 text-sm leading-relaxed">
-                Tomar la N-135 en dirección a Francia hasta Espinal, luego la NA-140 en
-                dirección a Orbaizeta. Aribe está a aproximadamente 1h de Pamplona.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-medium text-stone-800 mb-2">Desde Zaragoza o Madrid</h3>
-              <p className="text-stone-600 text-sm leading-relaxed">
-                Acceder por la AP-15 hasta Pamplona y desde allí seguir las indicaciones
-                anteriores.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-medium text-stone-800 mb-2">Desde Francia</h3>
-              <p className="text-stone-600 text-sm leading-relaxed">
-                Cruzar por el puerto de Larrau o Arnéguy y seguir en dirección sur por
-                la NA-140 hasta Aribe.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-medium text-stone-800 mb-2">Coordenadas GPS</h3>
-              <p className="text-stone-600 text-sm leading-relaxed">
-                42.9285° N, 1.1985° O
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── FOTOS DE LA UBICACIÓN ───────────────────────────────── */}
       {/* Añade fotos con estos nombres: ubicacion-foto-1.jpg, ubicacion-foto-2.jpg, ubicacion-foto-3.jpg ... */}
