@@ -22,24 +22,36 @@ export default function ComoLlegar() {
       {/* ── DIRECCIÓN + MAPA ────────────────────────────────────── */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-            <div>
-              <span className="text-amber-600 font-medium text-xs tracking-widest uppercase">
-                Dirección
-              </span>
-              <p className="font-[family-name:var(--font-playfair)] text-2xl text-stone-800 mt-1">
-                C. Sta. María, 60
-              </p>
-              <p className="text-stone-500 mt-1">31671 Aribe, Navarra, España</p>
+          <div className="mb-8">
+            <span className="text-amber-600 font-medium text-xs tracking-widest uppercase">
+              Dirección
+            </span>
+            <p className="font-[family-name:var(--font-playfair)] text-2xl text-stone-800 mt-1">
+              C. Sta. María, 60
+            </p>
+            <p className="text-stone-500 mt-1 mb-4">31671 Aribe, Navarra, España</p>
+            <p className="text-stone-600 leading-relaxed mb-6">
+              Llegarás al aparcamiento situado en el centro del pueblo. Desde allí podrás
+              ir andando hasta la casa cómodamente.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=C.+Sta.+María,+60,+31671+Aribe,+Navarra,+España"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white font-medium transition-colors text-sm"
+              >
+                Cómo llegar a la casa →
+              </a>
+              <a
+                href="https://www.google.com/maps/dir/?api=1&destination=42.944041,-1.263552"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 border-2 border-stone-800 text-stone-800 hover:bg-stone-800 hover:text-white font-medium transition-colors text-sm"
+              >
+                Cómo llegar al parking →
+              </a>
             </div>
-            <a
-              href="https://www.google.com/maps/dir/?api=1&destination=C.+Sta.+María,+60,+31671+Aribe,+Navarra,+España"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-500 text-white font-medium transition-colors text-sm whitespace-nowrap"
-            >
-              Cómo llegar con Google Maps →
-            </a>
           </div>
 
           {/* Mapa embebido */}
