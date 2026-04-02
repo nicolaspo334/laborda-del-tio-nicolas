@@ -73,7 +73,7 @@ export default function Historia() {
             La casa fue originalmente construida en <span className="text-stone-800 font-medium">1789</span>.
             En el pasado fue la borda de la familia Remondegui, casa Botoa, donde se guardaban los animales
             que, en los años de posguerra, abastecían el negocio familiar que se desarrollaba en la fonda,
-            en la casa Ibaio ondo.
+            en la casa Ibai ondo.
           </p>
           <p className="text-stone-600 text-lg leading-relaxed mt-6">
             Posteriormente, <span className="text-stone-800 font-medium">Nicolás Remondegui</span>, que
