@@ -54,7 +54,7 @@ export default function Home() {
         </div>
 
         {/* Indicador de scroll */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-white/70 text-xs tracking-widest uppercase">
+        <div className="absolute bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 text-white/70 text-xs tracking-widest uppercase">
           <span>Descubre</span>
           <svg
             className="animate-bounce w-5 h-5 text-white/70"
