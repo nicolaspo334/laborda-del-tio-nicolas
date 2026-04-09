@@ -6,7 +6,7 @@ import { useState } from 'react'
 // PASO 1: Crea una cuenta en https://formspree.io
 // PASO 2: Crea un nuevo form apuntando a bordadeltionicolas@gmail.com
 // PASO 3: Sustituye XXXXXXXX por tu form ID (lo verás en el dashboard)
-const FORMSPREE_ENDPOINT = 'https://formspree.io/bordadeltionicolas@gmail.com'
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mvzvaaea'
 // ─────────────────────────────────────────────────────────────────
 
 export default function Reserva() {
