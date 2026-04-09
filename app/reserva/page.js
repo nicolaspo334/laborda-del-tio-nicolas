@@ -6,7 +6,7 @@ import { useState } from 'react'
 // PASO 1: Crea una cuenta en https://formspree.io
 // PASO 2: Crea un nuevo form apuntando a bordadeltionicolas@gmail.com
 // PASO 3: Sustituye XXXXXXXX por tu form ID (lo verás en el dashboard)
-const FORMSPREE_ENDPOINT = 'https://formspree.io/f/mvzvaaea'
+const WEB3FORMS_KEY = 'c973f72c-8134-4ab8-a197-741e27452704'
 // ─────────────────────────────────────────────────────────────────
 
 export default function Reserva() {
@@ -19,12 +19,14 @@ export default function Reserva() {
     e.preventDefault()
     setStatus('sending')
     try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          _subject: `Reserva de ${form.nombre} ${form.apellido}`,
-          _replyto: form.email,
+          access_key: WEB3FORMS_KEY,
+          subject: `Reserva de ${form.nombre} ${form.apellido}`,
+          from_name: `${form.nombre} ${form.apellido}`,
+          replyto: form.email,
           Nombre: form.nombre,
           Apellido: form.apellido,
           Email: form.email,
