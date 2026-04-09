@@ -120,7 +120,7 @@ export default function LaCasa() {
             La casa fue rehabilitada conservando su espíritu, y adaptándose a su nueva finalidad. Así, el aska (abrevadero del ganado) que estaba en el lado oeste de la borda fue desmontado y su piedra utilizada para cubrir la pared de la chimenea. De igual manera, la estructura del tejado se conservó completamente de madera y guardando las proporciones de la zona, para que la nieve se deslice por las tejas, que son, como los finales de sus aristas, tradicionales de origen francés. El suelo es, en la parte superior, de tarima de roble del lugar, como las ventanas. Los sanitarios son también de ambiente rústico, recreando los utilizados anteriormente en la zona.
           </p>
           <p className="text-stone-600 text-lg leading-relaxed">
-            La decoración ha pretendido congeniar la tradición con la modernidad y la comodidad. Así, coexisten muebles antiguos de madera maciza, como el escritorio y los armarios, la mesa y las sillas del salón, con los modernos sofás, la chaisse-longue y diferentes pequeños detalles.
+            La decoración ha pretendido congeniar la tradición con la modernidad y la comodidad. Así, coexisten muebles antiguos de madera maciza, como el escritorio y los armarios, la mesa y las sillas del salón, con los modernos sofás y diferentes pequeños detalles.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 pt-4">
             <button
