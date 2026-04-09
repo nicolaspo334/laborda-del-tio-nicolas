@@ -6,7 +6,7 @@ import { useState } from 'react'
 // PASO 1: Crea una cuenta en https://formspree.io
 // PASO 2: Crea un nuevo form apuntando a bordadeltionicolas@gmail.com
 // PASO 3: Sustituye XXXXXXXX por tu form ID (lo verás en el dashboard)
-const FORMSPREE_ID = 'mvzvaaea'
+const FORMSPREE_ENDPOINT = 'https://formspree.io/bordadeltionicolas@gmail.com'
 // ─────────────────────────────────────────────────────────────────
 
 export default function Reserva() {
@@ -19,7 +19,7 @@ export default function Reserva() {
     e.preventDefault()
     setStatus('sending')
     try {
-      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
