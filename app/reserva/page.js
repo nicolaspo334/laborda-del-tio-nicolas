@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 
+const WEB3FORMS_KEY = 'c973f72c-8134-4ab8-a197-741e27452704'
+
 export default function Reserva() {
   const [form, setForm] = useState({ nombre: '', apellido: '', email: '', detalles: '', codigo: '' })
   const [status, setStatus] = useState('idle') // idle | sending | success | error
@@ -32,11 +34,45 @@ export default function Reserva() {
     e.preventDefault()
     if (codigoStatus === 'invalido' || codigoStatus === 'agotado') return
     setStatus('sending')
+
+    let codigoInfo = 'No introducido'
+
+    // Marcar código como usado en el servidor antes de enviar
+    if (form.codigo.trim()) {
+      try {
+        const res = await fetch('/api/check-code', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ code: form.codigo, action: 'usar' }),
+        })
+        const data = await res.json()
+        if (data.status !== 'valido') {
+          setCodigoStatus(data.status === 'agotado' ? 'agotado' : 'invalido')
+          setStatus('idle')
+          return
+        }
+        codigoInfo = `${form.codigo.trim().toUpperCase()} — VÁLIDO ✓ (aplicar descuento)`
+      } catch {
+        codigoInfo = `${form.codigo.trim().toUpperCase()} — No se pudo verificar`
+      }
+    }
+
+    // Enviar email desde el cliente (Web3Forms requiere llamada desde el navegador)
     try {
-      const res = await fetch('/api/submit-form', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject: `Reserva de ${form.nombre} ${form.apellido}`,
+          from_name: `${form.nombre} ${form.apellido}`,
+          replyto: form.email,
+          Nombre: form.nombre,
+          Apellido: form.apellido,
+          Email: form.email,
+          Detalles: form.detalles,
+          'Código de descuento': codigoInfo,
+        }),
       })
       if (res.ok) {
         setStatus('success')
