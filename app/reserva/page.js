@@ -2,40 +2,46 @@
 
 import { useState } from 'react'
 
-// ─────────────────────────────────────────────────────────────────
-// PASO 1: Crea una cuenta en https://formspree.io
-// PASO 2: Crea un nuevo form apuntando a bordadeltionicolas@gmail.com
-// PASO 3: Sustituye XXXXXXXX por tu form ID (lo verás en el dashboard)
-const WEB3FORMS_KEY = 'c973f72c-8134-4ab8-a197-741e27452704'
-// ─────────────────────────────────────────────────────────────────
-
 export default function Reserva() {
-  const [form, setForm] = useState({ nombre: '', apellido: '', email: '', detalles: '' })
+  const [form, setForm] = useState({ nombre: '', apellido: '', email: '', detalles: '', codigo: '' })
   const [status, setStatus] = useState('idle') // idle | sending | success | error
+  const [codigoStatus, setCodigoStatus] = useState(null) // null | checking | valido | invalido | agotado
 
-  const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value })
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value })
+    if (e.target.name === 'codigo') setCodigoStatus(null)
+  }
+
+  const checkCodigo = async () => {
+    if (!form.codigo.trim()) { setCodigoStatus(null); return }
+    setCodigoStatus('checking')
+    try {
+      const res = await fetch('/api/check-code', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: form.codigo }),
+      })
+      const data = await res.json()
+      setCodigoStatus(data.status)
+    } catch {
+      setCodigoStatus(null)
+    }
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (codigoStatus === 'invalido' || codigoStatus === 'agotado') return
     setStatus('sending')
     try {
-      const res = await fetch('https://api.web3forms.com/submit', {
+      const res = await fetch('/api/submit-form', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          subject: `Reserva de ${form.nombre} ${form.apellido}`,
-          from_name: `${form.nombre} ${form.apellido}`,
-          replyto: form.email,
-          Nombre: form.nombre,
-          Apellido: form.apellido,
-          Email: form.email,
-          Detalles: form.detalles,
-        }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
       })
       if (res.ok) {
         setStatus('success')
-        setForm({ nombre: '', apellido: '', email: '', detalles: '' })
+        setForm({ nombre: '', apellido: '', email: '', detalles: '', codigo: '' })
+        setCodigoStatus(null)
       } else {
         setStatus('error')
       }
@@ -184,28 +190,24 @@ export default function Reserva() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
               <div className="grid sm:grid-cols-2 gap-5">
-                <div>
-                  <input
-                    type="text"
-                    name="nombre"
-                    required
-                    value={form.nombre}
-                    onChange={handleChange}
-                    placeholder="Ingresa tu nombre"
-                    className="w-full border border-stone-300 px-4 py-3 text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-amber-500 transition-colors"
-                  />
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    name="apellido"
-                    required
-                    value={form.apellido}
-                    onChange={handleChange}
-                    placeholder="Ingresa tu apellido"
-                    className="w-full border border-stone-300 px-4 py-3 text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-amber-500 transition-colors"
-                  />
-                </div>
+                <input
+                  type="text"
+                  name="nombre"
+                  required
+                  value={form.nombre}
+                  onChange={handleChange}
+                  placeholder="Ingresa tu nombre"
+                  className="w-full border border-stone-300 px-4 py-3 text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-amber-500 transition-colors"
+                />
+                <input
+                  type="text"
+                  name="apellido"
+                  required
+                  value={form.apellido}
+                  onChange={handleChange}
+                  placeholder="Ingresa tu apellido"
+                  className="w-full border border-stone-300 px-4 py-3 text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-amber-500 transition-colors"
+                />
               </div>
 
               <input
@@ -228,6 +230,47 @@ export default function Reserva() {
                 className="w-full border border-stone-300 px-4 py-3 text-stone-800 placeholder:text-stone-400 focus:outline-none focus:border-amber-500 transition-colors resize-none"
               />
 
+              {/* ── CÓDIGO DE DESCUENTO ── */}
+              <div>
+                <label className="block text-xs font-medium text-stone-500 uppercase tracking-widest mb-2">
+                  Código de descuento <span className="normal-case font-normal">(opcional)</span>
+                </label>
+                <div className="flex gap-3">
+                  <input
+                    type="text"
+                    name="codigo"
+                    value={form.codigo}
+                    onChange={handleChange}
+                    onBlur={checkCodigo}
+                    placeholder="IRATI-XXXX"
+                    className={`flex-1 border px-4 py-3 text-stone-800 placeholder:text-stone-400 focus:outline-none transition-colors uppercase tracking-widest ${
+                      codigoStatus === 'valido' ? 'border-green-400 bg-green-50' :
+                      codigoStatus === 'invalido' || codigoStatus === 'agotado' ? 'border-red-400 bg-red-50' :
+                      'border-stone-300 focus:border-amber-500'
+                    }`}
+                  />
+                  <button
+                    type="button"
+                    onClick={checkCodigo}
+                    className="px-4 py-3 bg-stone-100 hover:bg-stone-200 text-stone-700 text-sm font-medium transition-colors border border-stone-300"
+                  >
+                    Verificar
+                  </button>
+                </div>
+                {codigoStatus === 'checking' && (
+                  <p className="mt-2 text-sm text-stone-500">Verificando código...</p>
+                )}
+                {codigoStatus === 'valido' && (
+                  <p className="mt-2 text-sm text-green-600 font-medium">✓ Código válido. Se aplicará el descuento.</p>
+                )}
+                {codigoStatus === 'invalido' && (
+                  <p className="mt-2 text-sm text-red-600">✗ Código no válido. Comprueba que está bien escrito.</p>
+                )}
+                {codigoStatus === 'agotado' && (
+                  <p className="mt-2 text-sm text-red-600">✗ Este código ya ha sido utilizado el máximo de veces.</p>
+                )}
+              </div>
+
               {status === 'error' && (
                 <p className="text-red-600 text-sm">
                   Ha ocurrido un error. Por favor, inténtalo de nuevo o escríbenos directamente.
@@ -236,7 +279,7 @@ export default function Reserva() {
 
               <button
                 type="submit"
-                disabled={status === 'sending'}
+                disabled={status === 'sending' || codigoStatus === 'invalido' || codigoStatus === 'agotado'}
                 className="w-full py-3 bg-amber-600 hover:bg-amber-500 disabled:bg-amber-300 text-white font-medium transition-colors tracking-wide"
               >
                 {status === 'sending' ? 'Enviando...' : 'Enviar'}
